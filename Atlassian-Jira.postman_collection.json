@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "cf3b081a-1ed4-404e-beab-1c14044dce00",
+		"name": "Atlassian-Jira",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6085639"
+	},
+	"item": [
+		{
+			"name": "Create_IssueInJIRA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"response=pm.response.json();\r",
+							"key_value=response.key;\r",
+							"id_value=response.id;\r",
+							"pm.collectionVariables.set(\"Jira_Key\", key_value);\r",
+							"pm.collectionVariables.set(\"Jira_id\", id_value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "mdyasin89@gmail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "arZrEkw0tBekmexxhXcW4B00",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n        \"project\": {\r\n            \"key\": \"SN3\"\r\n        },\r\n        \"summary\": \"create issue in RA project5\",\r\n        \"description\": \"Creating of an issue using project keys and issue type names using the REST API\",\r\n        \"issuetype\": {\r\n            \"name\": \"Bug\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mahdi2018.atlassian.net/rest/api/2/issue/",
+					"protocol": "https",
+					"host": [
+						"mahdi2018",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search_IssueInJIRA",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "mdyasin89@gmail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "arZrEkw0tBekmexxhXcW4B00",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://mahdi2018.atlassian.net/rest/api/2/issue/{{Jira_Key}}",
+					"protocol": "https",
+					"host": [
+						"mahdi2018",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{Jira_Key}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit_IssueInJIRA",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "mdyasin89@gmail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "arZrEkw0tBekmexxhXcW4B00",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n\r\n        \"description\": \"Bug creation Using REST API for testing4\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mahdi2018.atlassian.net/rest/api/2/issue/{{Jira_id}}",
+					"protocol": "https",
+					"host": [
+						"mahdi2018",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{Jira_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_IssueInJIRA",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "mdyasin89@gmail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "arZrEkw0tBekmexxhXcW4B00",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://mahdi2018.atlassian.net/rest/api/2/issue/{{Jira_id}}",
+					"protocol": "https",
+					"host": [
+						"mahdi2018",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{Jira_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchAll_IssueInJIRA",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "mdyasin89@gmail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "arZrEkw0tBekmexxhXcW4B00",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mahdi2018.atlassian.net/rest/api/2/search?jql=project=\"yasin3\"",
+					"protocol": "https",
+					"host": [
+						"mahdi2018",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"search"
+					],
+					"query": [
+						{
+							"key": "jql",
+							"value": "project=\"yasin3\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List_AllIssuesInJIRA",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "mdyasin89@gmail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "arZrEkw0tBekmexxhXcW4B00",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mahdi2018.atlassian.net/rest/api/2/issuetype",
+					"protocol": "https",
+					"host": [
+						"mahdi2018",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issuetype"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List_SpecificIssueInJIRA",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "mdyasin89@gmail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "arZrEkw0tBekmexxhXcW4B00",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mahdi2018.atlassian.net/rest/api/2/issuetype/{{Jira_id}}",
+					"protocol": "https",
+					"host": [
+						"mahdi2018",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issuetype",
+						"{{Jira_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Jira_Key",
+			"value": ""
+		},
+		{
+			"key": "Jira_id",
+			"value": ""
+		}
+	]
+}
